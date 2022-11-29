@@ -317,6 +317,7 @@ MonoBehaviour:
   animator: {fileID: 617425244}
   spriteRenderer: {fileID: 1068058576887670909}
   isJumping: 0
+  arrow: {fileID: 6533617482003151600, guid: f86e6e2e82ab69a44806d43ca9ee19ad, type: 3}
 --- !u!114 &6134413297345586918
 MonoBehaviour:
   m_ObjectHideFlags: 0

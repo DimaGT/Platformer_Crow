@@ -14,13 +14,16 @@ public class Player : MonoBehaviour
     public Animator animator;
     public SpriteRenderer spriteRenderer;
     public bool isJumping;
+    [SerializeField] private GameObject arrow;
 
 
     void Update() 
     {
-        animator.SetBool("isGrounded", groundDetection.isGrounded);
+        if (animator != null)
+            animator.SetBool("isGrounded", groundDetection.isGrounded);
         if(!isJumping && !groundDetection.isGrounded)
-            animator.SetTrigger("StartFall");
+            if (animator != null)
+                animator.SetTrigger("StartFall");
         isJumping = isJumping && !groundDetection.isGrounded;
         direction = Vector3.zero;
         if (Input.GetKey(KeyCode.A))
@@ -35,7 +38,8 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && groundDetection.isGrounded)
         {
             rigidbody.AddForce(Vector2.up * force, ForceMode2D.Impulse);
-            animator.SetTrigger("StartJump");
+                if (animator != null)
+                    animator.SetTrigger("StartJump");
             isJumping = true;
         }
         if(direction.x > 0)
@@ -44,8 +48,16 @@ public class Player : MonoBehaviour
             spriteRenderer.flipX = true;
         animator.SetFloat("Speed", Mathf.Abs(direction.x));
         CheckFall();
+        CheckShoot();
     }
 
+    void CheckShoot()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Instantiate(arrow);
+        }
+    }
     void CheckFall()
     {
         if(transform.position.y < minimalHeight && isCheatMode)
