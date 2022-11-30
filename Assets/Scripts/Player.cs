@@ -56,8 +56,8 @@ public class Player : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-           GameObject prefab = Instantiate(arrow, arrowSpawnPoint.transform.position, Quaternion.identity);
-           prefab.GetComponent<Arrow>().SetImpulse(Vector2.right, force * 20);
+            GameObject prefab = Instantiate(arrow, arrowSpawnPoint.transform.position, Quaternion.identity);
+            prefab.GetComponent<Arrow>().SetImpulse(Vector2.right, spriteRenderer.flipX ? -force * 5 : force * 5 , gameObject);
         }
     }
     void CheckFall()
