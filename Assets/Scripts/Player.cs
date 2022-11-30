@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     public bool isJumping;
     [SerializeField] private GameObject arrow;
+    [SerializeField] private Transform arrowSpawnPoint;
 
 
     void Update() 
@@ -55,7 +56,8 @@ public class Player : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Instantiate(arrow);
+           GameObject prefab = Instantiate(arrow, arrowSpawnPoint.transform.position, Quaternion.identity);
+           prefab.GetComponent<Arrow>().SetImpulse(Vector2.right, force * 20);
         }
     }
     void CheckFall()
