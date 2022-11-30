@@ -8,6 +8,8 @@ public class EnemyPatrol : MonoBehaviour
     public GameObject rightBorder;
     public Rigidbody2D rigidbody;
     public GroundDetection groundDetection;
+    [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private CollisionDamage collisionDamage;
 
     public bool isRightDirection;
 
@@ -15,6 +17,10 @@ public class EnemyPatrol : MonoBehaviour
 
     private void Update()
     {
+        if (isRightDirection)
+            spriteRenderer.flipX = true;
+        else
+            spriteRenderer.flipX = false;
         if (isRightDirection && groundDetection.isGrounded)
         {
             rigidbody.velocity = Vector2.right * speed;

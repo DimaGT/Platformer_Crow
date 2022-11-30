@@ -376,8 +376,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca840731171d6de4792ca3909692eb0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 0
   collisionTag: Enemy
+  animator: {fileID: 617425244}
 --- !u!114 &965369556
 MonoBehaviour:
   m_ObjectHideFlags: 0

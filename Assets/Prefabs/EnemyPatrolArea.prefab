@@ -128,8 +128,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2439799555691692904}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.47930002, y: 0.6206999, z: 0.05}
-  m_LocalScale: {x: 3.601952, y: 3.601952, z: 3.601952}
+  m_LocalPosition: {x: 0.06, y: 0.23, z: 0.05}
+  m_LocalScale: {x: 1.468876, y: 1.468876, z: 1.468876}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2439799554426907838}
@@ -176,8 +176,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 395f6b9556f14704790df6035be6ee3a, type: 3}
-  m_Color: {r: 0.9811321, g: 0.2082592, b: 0.2082592, a: 1}
+  m_Sprite: {fileID: 21300000, guid: aec63993a729ee94899d1aeab0170b3b, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -200,18 +200,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.011046827, y: -0.12703905}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.64, y: 0.64}
+    oldSize: {x: 2.6427078, y: 1.342}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.64, y: 0.64}
+  m_Size: {x: 1.8993436, y: 0.8940781}
   m_EdgeRadius: 0
 --- !u!50 &2439799555691692905
 Rigidbody2D:
@@ -250,8 +250,10 @@ MonoBehaviour:
   rightBorder: {fileID: 2439799555146256590}
   rigidbody: {fileID: 2439799555691692905}
   groundDetection: {fileID: 6728272190465660111}
+  spriteRenderer: {fileID: 2439799555691692907}
+  collisionDamage: {fileID: 7802997200650170036}
   isRightDirection: 0
-  speed: 5
+  speed: 2
 --- !u!114 &8862231216265567881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -279,6 +281,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 8
   collisionTag: Player
+  animator: {fileID: 673015611}
 --- !u!114 &6728272190465660111
 MonoBehaviour:
   m_ObjectHideFlags: 0
