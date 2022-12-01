@@ -8,6 +8,11 @@ public class CollisionDamage : MonoBehaviour
     public string collisionTag;
     private Health health;
     [SerializeField] private Animator animator;
+    private float direction;
+    public float Direction
+    {
+        get { return direction; }
+    }
 
     private void OnCollisionEnter2D(Collision2D col)
     {

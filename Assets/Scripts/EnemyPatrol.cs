@@ -17,21 +17,24 @@ public class EnemyPatrol : MonoBehaviour
 
     private void Update()
     {
-        if (isRightDirection)
-            spriteRenderer.flipX = true;
-        else
-            spriteRenderer.flipX = false;
-        if (isRightDirection && groundDetection.isGrounded)
+        if ( groundDetection.isGrounded)
         {
-            rigidbody.velocity = Vector2.right * speed;
-            if (transform.position.x > rightBorder.transform.position.x)
-                isRightDirection = !isRightDirection;
-        } 
+            if (transform.position.x > rightBorder.transform.position.x || collisionDamage.Direction < 0)
+                isRightDirection = false;
+            else if (transform.position.x < leftBorder.transform.position.x || collisionDamage.Direction > 0)
+                isRightDirection = true;
+            rigidbody.velocity = isRightDirection ? Vector2.right : Vector2.left;
+            rigidbody.velocity *= speed;
+        }
         else if (groundDetection.isGrounded)
         {
             rigidbody.velocity = Vector2.left * speed;
             if (transform.position.x < leftBorder.transform.position.x)
                 isRightDirection = !isRightDirection;
         }
+        if (isRightDirection)
+            spriteRenderer.flipX = true;
+        else
+            spriteRenderer.flipX = false;
     }
 }
