@@ -6,6 +6,7 @@ public class TriggerDamage : MonoBehaviour
 {
     [SerializeField] private int damage;
     [SerializeField] private bool isDestroyingAfterCollision;
+    [SerializeField] private GameObject playerInventory;
     private GameObject parent;
     public GameObject Parent
     {
@@ -22,6 +23,13 @@ public class TriggerDamage : MonoBehaviour
     {
         if (col.gameObject == parent)
             return; 
+        if(col.gameObject.CompareTag("Coin"))
+        {
+            var coin = col.gameObject.GetComponent<Coin>();
+            var inventory = playerInventory.GetComponent<PlayerInventory>();
+            inventory.AddCoin(coin.CoinCount);
+            Destroy(col.gameObject);
+        }
         var health = col.gameObject.GetComponent<Health>();
         if (health != null) 
         {

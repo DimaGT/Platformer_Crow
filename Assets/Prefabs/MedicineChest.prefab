@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 7148751709674018714}
   - component: {fileID: 7148751709674018715}
   - component: {fileID: 7148751709674018712}
+  - component: {fileID: 7180068239939335425}
+  - component: {fileID: 7180068239939335420}
   m_Layer: 0
   m_Name: MedicineChest
   m_TagString: Medicine
@@ -28,11 +30,11 @@ Transform:
   m_GameObject: {fileID: 7148751709674018713}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -8.58, y: -2.52, z: 0}
-  m_LocalScale: {x: 1.1415635, y: 1.1415635, z: 3.8052118}
+  m_LocalScale: {x: 0.64715236, y: 0.64715236, z: 2.1571746}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7148751709674018714
 SpriteRenderer:
@@ -75,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 02800fb9cff14da47a04572790384d8b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 554fef6cf90966843b19155fd79ab90d, type: 3}
   m_Color: {r: 0.754717, g: 0.51350534, b: 0.501958, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -123,3 +125,37 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!95 &7180068239939335425
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7148751709674018713}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a7e82838c8f7a14409cefb5873cc0fa8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7180068239939335420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7148751709674018713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e34d560ab907cb47b3e3bd24cefcf11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bonusHealth: 25
+  animator: {fileID: 7180068239939335425}

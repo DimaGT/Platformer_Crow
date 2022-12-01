@@ -5,13 +5,19 @@ using UnityEngine;
 public class MedicineChest : MonoBehaviour
 {
     public int bonusHealth;
+    private Health health;
+    [SerializeField] private Animator animator;
     public void OnTriggerEnter2D(Collider2D col)
     {
         if(col.gameObject.CompareTag("Player") || col.gameObject.CompareTag("Enemy"))
         {
-            Health health = col.gameObject.GetComponent<Health>();
-            health.SetHealth(bonusHealth);
-            Destroy(gameObject);
+            health = col.gameObject.GetComponent<Health>();
+            animator.SetTrigger("Healthing");
         }
+    }
+    public void getHealth()
+    {
+        health.SetHealth(bonusHealth);
+        Destroy(gameObject);
     }
 }

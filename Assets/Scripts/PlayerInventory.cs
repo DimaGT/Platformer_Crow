@@ -10,8 +10,13 @@ public class PlayerInventory : MonoBehaviour
     {
         if(col.gameObject.CompareTag("Coin"))
         {
-            coinsCount++;
+            var coinValue = col.gameObject.GetComponent<Coin>();
+            Debug.Log(coinValue.CoinCount);
             Destroy(col.gameObject);
         }
+    }
+    public void AddCoin(int count)
+    {
+        coinsCount += count;
     }
 }

@@ -15,7 +15,9 @@ public class Player : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     public bool isJumping;
     [SerializeField] private GameObject arrow;
+    [SerializeField] private GameObject prefab;
     [SerializeField] private Transform arrowSpawnPoint;
+    private bool allowShoot = true;
 
 
     void Update() 
@@ -54,12 +56,25 @@ public class Player : MonoBehaviour
 
     void CheckShoot()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && allowShoot)
         {
-            GameObject prefab = Instantiate(arrow, arrowSpawnPoint.transform.position, Quaternion.identity);
-            prefab.GetComponent<Arrow>().SetImpulse(Vector2.right, spriteRenderer.flipX ? -force * 5 : force * 5 , gameObject);
+            allowShoot = false;
+            animator.SetTrigger("Shoot");
         }
     }
+
+    void PrepareShoot()
+    {
+        prefab = Instantiate(arrow, arrowSpawnPoint.transform.position, Quaternion.identity);
+        prefab.GetComponent<Arrow>().SetImpulse(Vector2.right, 0 , gameObject);
+    }
+
+    void Shoot()
+    {
+        prefab.GetComponent<Arrow>().SetImpulse(Vector2.right, spriteRenderer.flipX ? -force * 5 : force * 5 , gameObject);
+        StartCoroutine(Cooldown());
+    }
+
     void CheckFall()
     {
         if(transform.position.y < minimalHeight && isCheatMode)
@@ -71,5 +86,10 @@ public class Player : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+    IEnumerator Cooldown()
+    {
+        yield return new WaitForSeconds(2); 
+        allowShoot = true;
     }
 }
