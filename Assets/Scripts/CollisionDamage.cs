@@ -14,12 +14,14 @@ public class CollisionDamage : MonoBehaviour
         get { return direction; }
     }
 
-    private void OnCollisionEnter2D(Collision2D col)
+    private void OnCollisionStay2D(Collision2D col)
     {
         health = col.gameObject.GetComponent<Health>();
         if (health != null)
-            animator.SetTrigger("CollisionDamage");
-            SetDamage();
+        {
+            direction = (col.transform.position - transform.position).x;
+            animator.SetFloat("Direction", Mathf.Abs(direction));
+        }
     }
 
     public void SetDamage()
@@ -27,5 +29,7 @@ public class CollisionDamage : MonoBehaviour
         if (health != null)
             health.TakeHit(damage);
         health = null;
+        direction = 0;
+        animator.SetFloat("Direction", 0f);
     }
 }

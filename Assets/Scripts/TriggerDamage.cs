@@ -20,7 +20,6 @@ public class TriggerDamage : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        Debug.Log(col);
         if (col.gameObject == parent)
             return; 
         var health = col.gameObject.GetComponent<Health>();

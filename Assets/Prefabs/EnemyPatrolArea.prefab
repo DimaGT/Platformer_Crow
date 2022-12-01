@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 2439799554426907837}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.15, y: -3.57, z: -0.05}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.221, y: 1.221, z: 1.221}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2439799555123891829}
@@ -129,7 +129,7 @@ Transform:
   m_GameObject: {fileID: 2439799555691692904}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.06, y: 0.23, z: 0.05}
-  m_LocalScale: {x: 1.468876, y: 1.468876, z: 1.468876}
+  m_LocalScale: {x: 1.0274494, y: 1.0274494, z: 1.0274494}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2439799554426907838}
@@ -225,7 +225,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -252,6 +252,8 @@ MonoBehaviour:
   groundDetection: {fileID: 6728272190465660111}
   spriteRenderer: {fileID: 2439799555691692907}
   collisionDamage: {fileID: 7802997200650170036}
+  animator: {fileID: 673015611}
+  staying: 0
   isRightDirection: 0
   speed: 2
 --- !u!114 &8862231216265567881
@@ -305,7 +307,7 @@ Animator:
   m_GameObject: {fileID: 2439799555691692904}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 8f5672a9bdd54c14081d27046b74721c, type: 2}
+  m_Controller: {fileID: 9100000, guid: 100e5361faa4fbf46b48c022850fd1cc, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
