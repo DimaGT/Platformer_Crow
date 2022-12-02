@@ -30,9 +30,9 @@ public class TriggerDamage : MonoBehaviour
             inventory.AddCoin(coin.CoinCount);
             Destroy(col.gameObject);
         }
-        var health = col.gameObject.GetComponent<Health>();
-        if (health != null) 
+        if (GameManager.Instance.healthContainer.ContainsKey(col.gameObject)) 
         {
+            var health = GameManager.Instance.healthContainer[col.gameObject];
             health.TakeHit(damage);
         }
         if(isDestroyingAfterCollision)
