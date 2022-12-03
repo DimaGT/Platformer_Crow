@@ -5,6 +5,22 @@ using UnityEngine;
 public class BuffEmitter : MonoBehaviour
 {
     [SerializeField] private Buff buff;
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (GameManager.Instance.buffReceiverContainer.ContainsKey(col.gameObject))
+        {
+            var receiver = GameManager.Instance.buffReceiverContainer[col.gameObject];
+            receiver.AddBuff(buff);
+        }
+    }
+    private void OnTriggerExit2D(Collider2D col)
+    {
+        if (GameManager.Instance.buffReceiverContainer.ContainsKey(col.gameObject))
+        {
+            var receiver = GameManager.Instance.buffReceiverContainer[col.gameObject];
+            receiver.RemoveBuff(buff);
+        }
+    }
 }
 [System.Serializable]
 public class Buff
