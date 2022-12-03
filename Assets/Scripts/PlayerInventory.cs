@@ -8,11 +8,11 @@ public class PlayerInventory : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D col)
     {
-        if(col.gameObject.CompareTag("Coin"))
+        if (GameManager.Instance.coinContainer.ContainsKey(col.gameObject))
         {
-            var coinValue = col.gameObject.GetComponent<Coin>();
-            Debug.Log(coinValue.CoinCount);
-            Destroy(col.gameObject);
+            var coin = GameManager.Instance.coinContainer[col.gameObject];
+            AddCoin(coin.CoinCount);
+            coin.StartDestroy();
         }
     }
     public void AddCoin(int count)

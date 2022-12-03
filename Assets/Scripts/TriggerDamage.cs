@@ -23,12 +23,13 @@ public class TriggerDamage : MonoBehaviour
     {
         if (col.gameObject == parent)
             return; 
-        if(col.gameObject.CompareTag("Coin"))
+        if (GameManager.Instance.coinContainer.ContainsKey(col.gameObject))
         {
-            var coin = col.gameObject.GetComponent<Coin>();
+            var coin = GameManager.Instance.coinContainer[col.gameObject];
             var inventory = playerInventory.GetComponent<PlayerInventory>();
+            Debug.Log(coin.CoinCount);
             inventory.AddCoin(coin.CoinCount);
-            Destroy(col.gameObject);
+            coin.StartDestroy();
         }
         if (GameManager.Instance.healthContainer.ContainsKey(col.gameObject)) 
         {
