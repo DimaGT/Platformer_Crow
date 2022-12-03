@@ -4,24 +4,19 @@ using UnityEngine;
 
 public class BuffEmitter : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [SerializeField] private Buff buff;
 }
-
+[System.Serializable]
 public class Buff
 {
-    public int type;
+    public BuffType type;
     public float additiveBonus;
     public float multipleBonus;
+}
+
+public enum BuffType : byte
+{
+    Damage, Force, Armor
 }
 
 
