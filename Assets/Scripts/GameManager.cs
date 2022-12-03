@@ -22,5 +22,9 @@ public class GameManager : MonoBehaviour
 
     }
 
+    public void OnClickPause()
+    {
+        Time.timeScale = Time.timeScale > 0 ? 0 : 1;
+    }
 
 }

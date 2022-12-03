@@ -89,7 +89,7 @@ public class Player : MonoBehaviour
     }
     IEnumerator Cooldown()
     {
-        yield return new WaitForSeconds(2); 
+        yield return new WaitForSeconds(1);  
         allowShoot = true;
     }
 }

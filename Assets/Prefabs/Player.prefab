@@ -245,7 +245,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.006881237, y: -0.7312647}
+  m_Offset: {x: 0.012353897, y: -0.7367736}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -256,7 +256,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5824728, y: 0.3722551}
+  m_Size: {x: 0.6385708, y: 0.3832729}
   m_EdgeRadius: 0
 --- !u!114 &1516343790
 MonoBehaviour:
@@ -400,7 +400,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.011350632, y: 0.02372086}
+  m_Offset: {x: 0.013355255, y: 0.02372086}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -411,7 +411,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.7379627, y: 1.8067038}
+  m_Size: {x: 0.5495224, y: 1.8067038}
   m_EdgeRadius: 0
 --- !u!114 &1068058576887670907
 MonoBehaviour:
@@ -478,6 +478,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinsCount: 180
+  coinsText: {fileID: 0}
 --- !u!95 &617425244
 Animator:
   serializedVersion: 4

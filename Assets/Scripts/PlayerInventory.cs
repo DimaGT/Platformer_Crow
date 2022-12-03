@@ -1,10 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerInventory : MonoBehaviour
 {
-    public int coinsCount;
+    public int coinsCount = 0;
+    [SerializeField] private Text coinsText;
+
+    private void Start() {
+        coinsText.text = coinsCount.ToString();
+    }
 
     public void OnTriggerEnter2D(Collider2D col)
     {
@@ -18,5 +24,6 @@ public class PlayerInventory : MonoBehaviour
     public void AddCoin(int count)
     {
         coinsCount += count;
+        coinsText.text =  coinsCount.ToString();;
     }
 }
