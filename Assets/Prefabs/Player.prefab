@@ -245,7 +245,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.012353897, y: -0.7367736}
+  m_Offset: {x: 0.01477623, y: -0.71497023}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -256,7 +256,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.6385708, y: 0.3832729}
+  m_Size: {x: 0.5271301, y: 0.33966613}
   m_EdgeRadius: 0
 --- !u!114 &1516343790
 MonoBehaviour:
@@ -426,7 +426,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  force: 7
+  force: 5
   minimalHeight: -15
   rigidbody: {fileID: 1068058576887670910}
   isCheatMode: 0
@@ -437,6 +437,7 @@ MonoBehaviour:
   arrow: {fileID: 6533617482003151600, guid: f86e6e2e82ab69a44806d43ca9ee19ad, type: 3}
   prefab: {fileID: 0}
   arrowSpawnPoint: {fileID: 622791566}
+  health: {fileID: 6134413297345586918}
 --- !u!114 &6134413297345586918
 MonoBehaviour:
   m_ObjectHideFlags: 0
