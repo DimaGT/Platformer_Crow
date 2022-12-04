@@ -25,11 +25,10 @@ public class TriggerDamage : MonoBehaviour
             return; 
         if (GameManager.Instance.coinContainer.ContainsKey(col.gameObject))
         {
-            var coin = GameManager.Instance.coinContainer[col.gameObject];
-            var inventory = playerInventory.GetComponent<PlayerInventory>();
-            Debug.Log(coin.CoinCount);
-            inventory.AddCoin(coin.CoinCount);
-            coin.StartDestroy();
+            // var coin = GameManager.Instance.coinContainer[col.gameObject];
+            // var inventory = playerInventory.GetComponent<PlayerInventory>();
+            // inventory.AddCoin(coin.CoinCount);
+            // coin.StartDestroy();
         }
         if (GameManager.Instance.healthContainer.ContainsKey(col.gameObject)) 
         {
@@ -39,6 +38,12 @@ public class TriggerDamage : MonoBehaviour
             animator.SetTrigger("GetDamage"); 
         }
         if(isDestroyingAfterCollision)
-            Destroy(gameObject);
+            StartCoroutine(StartLife());
+    }
+    private IEnumerator StartLife()
+    {
+        yield return new WaitForSeconds(1);
+        Destroy(gameObject);
+        yield break;
     }
 }

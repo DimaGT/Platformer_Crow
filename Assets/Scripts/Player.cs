@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject prefab;
     [SerializeField] private Transform arrowSpawnPoint;
     [SerializeField] private Health health;
+    [SerializeField] private bool ladder;
     public Health Health => health;
     private bool allowShoot = true;
 
@@ -26,7 +27,7 @@ public class Player : MonoBehaviour
     {
         if (animator != null)
             animator.SetBool("isGrounded", groundDetection.isGrounded);
-        if(!isJumping && !groundDetection.isGrounded)
+        if(!isJumping && !groundDetection.isGrounded && !ladder)
             if (animator != null)
                 animator.SetTrigger("StartFall");
         isJumping = isJumping && !groundDetection.isGrounded;
@@ -34,7 +35,13 @@ public class Player : MonoBehaviour
         if (Input.GetKey(KeyCode.A))
             direction = Vector3.left;
         if (Input.GetKey(KeyCode.D))
-            direction = Vector3.right;
+            direction = Vector3.right; 
+        if (Input.GetKey(KeyCode.W))
+            ladder = true;
+        else if (Input.GetKey(KeyCode.S))
+            ladder = true;
+        else
+            ladder = false;
 
         direction *= speed;
         direction.y = rigidbody.velocity.y;

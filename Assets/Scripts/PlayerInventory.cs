@@ -6,9 +6,9 @@ using UnityEngine.UI;
 public class PlayerInventory : MonoBehaviour
 {
     public int coinsCount = 0;
-    [SerializeField] private Text coinsText;
+    public Text coinsText;
 
-    private void Start() {
+    public void Start() {
         coinsText.text = coinsCount.ToString();
     }
 
@@ -24,6 +24,8 @@ public class PlayerInventory : MonoBehaviour
     public void AddCoin(int count)
     {
         coinsCount += count;
-        coinsText.text = coinsCount.ToString();;
+        Debug.Log(coinsCount);
+        if(coinsText != null)
+            coinsText.text = coinsCount.ToString();
     }
 }

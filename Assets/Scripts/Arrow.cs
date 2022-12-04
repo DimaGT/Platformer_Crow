@@ -8,7 +8,7 @@ public class Arrow : MonoBehaviour
     [SerializeField] private Rigidbody2D rigidbody;
     [SerializeField] private TriggerDamage triggerDamage;
     [SerializeField] private float force;
-    [SerializeField] private float lifeTime;
+    [SerializeField] private float lifeTime = 2;
 
     public float Force
     {
