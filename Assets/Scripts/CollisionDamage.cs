@@ -21,6 +21,7 @@ public class CollisionDamage : MonoBehaviour
         {
             direction = (col.transform.position - transform.position).x;
             animator.SetFloat("Direction", Mathf.Abs(direction));
+            animator.SetTrigger("GetDamage"); 
         }
     }
 

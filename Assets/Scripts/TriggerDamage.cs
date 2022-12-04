@@ -35,6 +35,8 @@ public class TriggerDamage : MonoBehaviour
         {
             var health = GameManager.Instance.healthContainer[col.gameObject];
             health.TakeHit(damage);
+            var animator = col.gameObject.GetComponent<Animator>();
+            animator.SetTrigger("GetDamage"); 
         }
         if(isDestroyingAfterCollision)
             Destroy(gameObject);

@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    public int health;
+    [SerializeField] private int health;
+    public int CurrentHealth => health;
 
     private void Start()
     {
@@ -14,7 +15,6 @@ public class Health : MonoBehaviour
     public void TakeHit(int damage)
     {
         health -= damage;
-            Debug.Log(health);
         if (health <= 0)
             Destroy(gameObject);
         

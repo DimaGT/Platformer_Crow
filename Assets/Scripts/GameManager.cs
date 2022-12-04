@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
+
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -23,8 +25,9 @@ public class GameManager : MonoBehaviour
     }
 
     public void OnClickPause()
-    {
+    {        
         Time.timeScale = Time.timeScale > 0 ? 0 : 1;
+        SceneManager.LoadScene(0);
     }
 
 }

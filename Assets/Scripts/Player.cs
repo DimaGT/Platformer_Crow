@@ -17,6 +17,8 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject arrow;
     [SerializeField] private GameObject prefab;
     [SerializeField] private Transform arrowSpawnPoint;
+    [SerializeField] private Health health;
+    public Health Health => health;
     private bool allowShoot = true;
 
 

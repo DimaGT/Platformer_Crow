@@ -24,6 +24,6 @@ public class PlayerInventory : MonoBehaviour
     public void AddCoin(int count)
     {
         coinsCount += count;
-        coinsText.text =  coinsCount.ToString();;
+        coinsText.text = coinsCount.ToString();;
     }
 }
