@@ -21,6 +21,9 @@ public class Player : MonoBehaviour
     [SerializeField] private bool ladder;
     public Health Health => health;
     private bool allowShoot = true;
+    private bool canAddSprint = true;
+    private bool addSprint = false;
+    
 
 
     void Update() 
@@ -36,6 +39,9 @@ public class Player : MonoBehaviour
             direction = Vector3.left;
         if (Input.GetKey(KeyCode.D))
             direction = Vector3.right; 
+        if (Input.GetKey(KeyCode.LeftShift))
+            if (canAddSprint)
+                StartCoroutine(CooldownSprint());
         if (Input.GetKey(KeyCode.W))
             ladder = true;
         else if (Input.GetKey(KeyCode.S))
@@ -46,6 +52,10 @@ public class Player : MonoBehaviour
         direction *= speed;
         direction.y = rigidbody.velocity.y;
         rigidbody.velocity = direction;
+        if(addSprint)
+        {
+            rigidbody.velocity = (spriteRenderer.flipX ? Vector3.left : Vector3.right) * speed * 4;
+        }
 
         if (Input.GetKeyDown(KeyCode.Space) && groundDetection.isGrounded)
         {
@@ -80,7 +90,7 @@ public class Player : MonoBehaviour
 
     void Shoot()
     {
-        prefab.GetComponent<Arrow>().SetImpulse(Vector2.right, spriteRenderer.flipX ? -force * 5 : force * 5 , gameObject);
+        prefab.GetComponent<Arrow>().SetImpulse(Vector2.right, spriteRenderer.flipX ? -force * 5  : force * 5 , gameObject);
         StartCoroutine(Cooldown());
     }
 
@@ -100,5 +110,17 @@ public class Player : MonoBehaviour
     {
         yield return new WaitForSeconds(1);  
         allowShoot = true;
+    }
+    private IEnumerator CooldownSprint()
+    {
+        canAddSprint = false;
+        addSprint = true;
+        yield return new WaitForSeconds(0.25F);
+        addSprint = false;
+        yield return new WaitForSeconds(5);
+        canAddSprint = true;
+
+
+        yield break;
     }
 }
