@@ -7,9 +7,15 @@ public class PlayerInventory : MonoBehaviour
 {
     public int coinsCount = 0;
     public Text coinsText;
-
+    private List<Item> items;
+    public List<Item> Items
+    {
+        get { return items; }
+    }
     public void Start() {
+        GameManager.Instance.inventory = this;
         coinsText.text = coinsCount.ToString();
+        items = new List<Item>();
     }
 
     public void OnTriggerEnter2D(Collider2D col)
@@ -20,6 +26,13 @@ public class PlayerInventory : MonoBehaviour
             AddCoin(coin.CoinCount);
             coin.StartDestroy();
         }
+        if (GameManager.Instance.itemsContainer.ContainsKey(col.gameObject))
+        {
+            var itemComponent = GameManager.Instance.itemsContainer[col.gameObject];
+            items.Add(itemComponent.Item);
+            itemComponent.Destroy(col.gameObject);
+        }
+
     }
     public void AddCoin(int count)
     {

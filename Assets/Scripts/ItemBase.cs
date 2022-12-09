@@ -49,6 +49,16 @@ public class ItemBase : ScriptableObject
             currentItem = items[currentIndex];
         }
     }
+
+    public Item GetItemOfID(int id)
+    {
+        foreach ( var item in items )
+        {
+            if (item.ID == id)
+                return item;
+        }
+        return null;
+    }
 }
 [System.Serializable]
 public class Item
@@ -68,6 +78,11 @@ public class Item
     {
         get { return description; }
     }
+    [SerializeField] private Sprite icon;
+    public Sprite Icon
+    {
+        get { return icon; }
+    }
     [SerializeField] private BuffType type;
     public BuffType Type
     {
@@ -78,4 +93,5 @@ public class Item
     {
         get { return value; }
     }
+
 }

@@ -12,3 +12,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da8f0a6eb50c9314c8b2853cde12b70f, type: 3}
   m_Name: ItemDatabase
   m_EditorClassIdentifier: 
+  items:
+  - id: 0
+    itemName: Power potion
+    description: 'Increases heroes jump strength '
+    icon: {fileID: 21300000, guid: 2792ecda1c14d1540ad3c830799a59e1, type: 3}
+    type: 1
+    value: 10
+  - id: 1
+    itemName: Damage potion
+    description: 'Increases heroe damage count. '
+    icon: {fileID: 21300000, guid: 9274a9b40c740ab41ba0146d018a52cb, type: 3}
+    type: 0
+    value: 5
+  - id: 2
+    itemName: Health potion
+    description: 'Increases heroe health count for short time. '
+    icon: {fileID: 0}
+    type: 2
+    value: 50
+  currentItem:
+    id: 0
+    itemName: Power potion
+    description: 'Increases heroes jump strength '
+    icon: {fileID: 21300000, guid: 2792ecda1c14d1540ad3c830799a59e1, type: 3}
+    type: 1
+    value: 10

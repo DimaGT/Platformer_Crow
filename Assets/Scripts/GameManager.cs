@@ -13,6 +13,9 @@ public class GameManager : MonoBehaviour
     public Dictionary<GameObject, Health> healthContainer;
     public Dictionary<GameObject, Coin> coinContainer;
     public Dictionary<GameObject, BuffReceiver> buffReceiverContainer;
+    public Dictionary<GameObject, ItemComponent> itemsContainer;
+    public PlayerInventory inventory;
+    public ItemBase itemDataBase;
 
 
     private void Awake()
@@ -21,7 +24,7 @@ public class GameManager : MonoBehaviour
         healthContainer = new Dictionary<GameObject, Health>();
         coinContainer = new Dictionary<GameObject, Coin>();
         buffReceiverContainer = new Dictionary<GameObject, BuffReceiver>();
-
+        itemsContainer = new Dictionary<GameObject, ItemComponent>();
     }
 
     public void OnClickPause()
